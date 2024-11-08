@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Template Layout</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-rows: 50px auto auto auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "header header menu"
+                "hero hero hero"
+                "main image extra"
+                "banner banner banner";
+            gap: 10px; /* Espaciado entre las secciones */
+            height: 100vh;
+        }
+
+        /* Estilo general para las áreas */
+        header {
+            grid-area: header;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        nav {
+            grid-area: menu;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .hero {
+            grid-area: hero;
+            background-color: #4A90E2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        article.main {
+            grid-area: main;
+            background-color: #1C2B39;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .image {
+            grid-area: image;
+            background-color: lightcyan;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        aside.extra {
+            grid-area: extra;
+            background-color: #4CAF50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .banner {
+            grid-area: banner;
+            background-color: #F5A623;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Responsividad para Tablets */
+        @media (max-width: 1024px) {
+            body {
+                grid-template-rows: 50px auto auto auto auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "header header"
+                    "hero hero"
+                    "menu menu"
+                    "main banner"
+                    "extra image";
+            }
+
+            .banner {
+                grid-column: 1 / span 2; /* Ocupa ambas columnas */
+            }
+        }
+
+        /* Responsividad para Móviles */
+        @media (max-width: 768px) {
+            body {
+                grid-template-rows: 50px repeat(6, auto);
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "menu"
+                    "hero"
+                    "main"
+                    "banner"
+                    "extra"
+                    "image";
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>HEADER</header>
+    <nav>MENU</nav>
+    <div class="hero">HERO</div>
+    <article class="main">MAIN</article>
+    <div class="image">IMAGE</div>
+    <aside class="extra">EXTRA</aside>
+    <div class="banner">BANNER</div>
+
+</body>
+</html>
